@@ -3,12 +3,12 @@
   "version": "0.2.6-beta.1",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wormhole-foundation/connect-sdk.git"
+    "url": "git+https://github.com/wormhole-foundation/sdk.git"
   },
   "bugs": {
-    "url": "https://github.com/wormhole-foundation/connect-sdk/issues"
+    "url": "https://github.com/wormhole-foundation/sdk/issues"
   },
-  "homepage": "https://github.com/wormhole-foundation/connect-sdk#readme",
+  "homepage": "https://github.com/wormhole-foundation/sdk#readme",
   "directories": {
     "test": "__tests__"
   },
@@ -31,15 +31,15 @@
     "updateForeignAssets": "npx ts-node ./src/scripts/updateForeignAssetConfig"
   },
   "dependencies": {
-    "@wormhole-foundation/connect-sdk": "^0.2.6-beta.1",
-    "@wormhole-foundation/connect-sdk-evm": "^0.2.6-beta.1",
-    "@wormhole-foundation/connect-sdk-evm-core": "^0.2.6-beta.1",
-    "@wormhole-foundation/connect-sdk-evm-tokenbridge": "^0.2.6-beta.1",
-    "@wormhole-foundation/connect-sdk-solana": "^0.2.6-beta.1",
-    "@wormhole-foundation/connect-sdk-solana-core": "^0.2.6-beta.1",
-    "@wormhole-foundation/connect-sdk-solana-tokenbridge": "^0.2.6-beta.1",
-    "@wormhole-foundation/connect-sdk-cosmwasm": "^0.2.6-beta.1",
-    "@wormhole-foundation/connect-sdk-cosmwasm-core": "^0.2.6-beta.1",
-    "@wormhole-foundation/connect-sdk-cosmwasm-tokenbridge": "^0.2.6-beta.1"
+    "@wormhole-foundation/sdk": "^0.2.6-beta.1",
+    "@wormhole-foundation/sdk-evm": "^0.2.6-beta.1",
+    "@wormhole-foundation/sdk-evm-core": "^0.2.6-beta.1",
+    "@wormhole-foundation/sdk-evm-tokenbridge": "^0.2.6-beta.1",
+    "@wormhole-foundation/sdk-solana": "^0.2.6-beta.1",
+    "@wormhole-foundation/sdk-solana-core": "^0.2.6-beta.1",
+    "@wormhole-foundation/sdk-solana-tokenbridge": "^0.2.6-beta.1",
+    "@wormhole-foundation/sdk-cosmwasm": "^0.2.6-beta.1",
+    "@wormhole-foundation/sdk-cosmwasm-core": "^0.2.6-beta.1",
+    "@wormhole-foundation/sdk-cosmwasm-tokenbridge": "^0.2.6-beta.1"
   }
 }

@@ -1,14 +1,14 @@
 {
-  "name": "@wormhole-foundation/connect-sdk-cosmwasm",
+  "name": "@wormhole-foundation/sdk-cosmwasm",
   "version": "0.3.0-beta.11",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wormhole-foundation/connect-sdk.git"
+    "url": "git+https://github.com/wormhole-foundation/sdk.git"
   },
   "bugs": {
-    "url": "https://github.com/wormhole-foundation/connect-sdk/issues"
+    "url": "https://github.com/wormhole-foundation/sdk/issues"
   },
-  "homepage": "https://github.com/wormhole-foundation/connect-sdk#readme",
+  "homepage": "https://github.com/wormhole-foundation/sdk#readme",
   "directories": {
     "test": "tests"
   },
@@ -17,7 +17,7 @@
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "author": "",
-  "description": "SDK for EVM chains, used in conjunction with @wormhole-foundation/connect-sdk",
+  "description": "SDK for EVM chains, used in conjunction with @wormhole-foundation/sdk",
   "files": [
     "dist/**/*"
   ],
@@ -50,7 +50,7 @@
     "test": "jest --config ./jest.config.ts"
   },
   "dependencies": {
-    "@wormhole-foundation/connect-sdk": "^0.3.0-beta.11",
+    "@wormhole-foundation/sdk": "^0.3.0-beta.11",
     "@cosmjs/cosmwasm-stargate": "^0.32.0",
     "@cosmjs/proto-signing": "^0.32.0",
     "@cosmjs/stargate": "^0.32.0",

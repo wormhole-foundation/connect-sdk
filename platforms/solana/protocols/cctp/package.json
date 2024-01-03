@@ -1,14 +1,14 @@
 {
-  "name": "@wormhole-foundation/connect-sdk-solana-cctp",
+  "name": "@wormhole-foundation/sdk-solana-cctp",
   "version": "0.3.0-beta.11",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wormhole-foundation/connect-sdk.git"
+    "url": "git+https://github.com/wormhole-foundation/sdk.git"
   },
   "bugs": {
-    "url": "https://github.com/wormhole-foundation/connect-sdk/issues"
+    "url": "https://github.com/wormhole-foundation/sdk/issues"
   },
-  "homepage": "https://github.com/wormhole-foundation/connect-sdk#readme",
+  "homepage": "https://github.com/wormhole-foundation/sdk#readme",
   "directories": {
     "test": "__tests__"
   },
@@ -17,7 +17,7 @@
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "author": "",
-  "description": "SDK for Solana, used in conjunction with @wormhole-foundation/connect-sdk",
+  "description": "SDK for Solana, used in conjunction with @wormhole-foundation/sdk",
   "files": [
     "dist/**/*"
   ],
@@ -47,9 +47,9 @@
     "nock": "^13.3.3"
   },
   "dependencies": {
-    "@wormhole-foundation/connect-sdk": "^0.3.0-beta.11",
-    "@wormhole-foundation/connect-sdk-solana": "^0.3.0-beta.11",
-    "@wormhole-foundation/connect-sdk-solana-core": "^0.3.0-beta.11",
+    "@wormhole-foundation/sdk": "^0.3.0-beta.11",
+    "@wormhole-foundation/sdk-solana": "^0.3.0-beta.11",
+    "@wormhole-foundation/sdk-solana-core": "^0.3.0-beta.11",
     "@coral-xyz/borsh": "0.2.6",
     "@project-serum/anchor": "0.25.0",
     "@project-serum/borsh": "0.2.5",
