@@ -12,6 +12,7 @@ import { TokenTransfer } from "../../protocols/tokenTransfer";
 import { AttestationReceipt, TransferState } from "../../types";
 import { AutomaticRoute, StaticRouteMethods } from "../route";
 import {
+  MinAmountError,
   Quote,
   QuoteResult,
   Receipt,
@@ -149,12 +150,7 @@ export class AutomaticTokenBridgeRoute<N extends Network>
     // Min amount is fee + 5%
     const minAmount = (fee * 105n) / 100n;
     if (amount.units(amt) < minAmount) {
-      throw new Error(
-        `Minimum amount is ${amount.display({
-          amount: minAmount.toString(),
-          decimals: amt.decimals,
-        })}`,
-      );
+      throw new MinAmountError(amount.fromBaseUnits(minAmount, amt.decimals));
     }
 
     const redeemableAmount = amount.units(amt) - fee;
