@@ -76,3 +76,19 @@ export type QuoteError = {
   success: false;
   error: Error;
 };
+
+// Special error to return from quote() or validate() when the
+// given transfer amount is too small. Used to helpfully
+// show a minimum amount in the interface.
+export class MinAmountError extends Error {
+  min: amount.Amount;
+
+  constructor(min: amount.Amount) {
+    super(`Minimum transfer amount is ${amount.display(min)}`);
+    this.min = min;
+  }
+
+  minAmount(): amount.Amount {
+    return this.min;
+  }
+}
