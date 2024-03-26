@@ -1,6 +1,6 @@
 {
   "name": "@wormhole-foundation/connect-sdk-examples",
-  "version": "0.5.1",
+  "version": "0.5.2-beta.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wormhole-foundation/connect-sdk.git"
@@ -36,6 +36,7 @@
     "router": "tsx src/router.ts",
     "wrapped": "tsx src/createWrapped.ts",
     "tb": "tsx src/tokenBridge.ts",
+    "ntt": "tsx src/ntt.ts",
     "cctp": "tsx src/cctp.ts",
     "demo": "tsx src/index.ts",
     "cosmos": "tsx src/cosmos.ts",
@@ -52,6 +53,6 @@
     "algosdk": "^2.7.0"
   },
   "dependencies": {
-    "@wormhole-foundation/sdk": "0.5.1"
+    "@wormhole-foundation/sdk": "0.5.2-beta.0"
   }
 }

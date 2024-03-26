@@ -1,6 +1,6 @@
 {
   "name": "ts-sdk",
-  "version": "0.5.1",
+  "version": "0.5.2-beta.0",
   "license": "Apache-2.0",
   "directories": {
     "test": "__tests__"
@@ -47,10 +47,12 @@
     "platforms/evm/protocols/tokenBridge",
     "platforms/evm/protocols/cctp",
     "platforms/evm/protocols/portico",
+    "platforms/evm/protocols/ntt",
     "platforms/solana",
     "platforms/solana/protocols/core",
     "platforms/solana/protocols/tokenBridge",
     "platforms/solana/protocols/cctp",
+    "platforms/solana/protocols/ntt",
     "platforms/cosmwasm",
     "platforms/cosmwasm/protocols/core",
     "platforms/cosmwasm/protocols/tokenBridge",

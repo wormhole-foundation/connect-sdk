@@ -29,20 +29,34 @@ export interface ProtocolInitializer<P extends Platform, PN extends ProtocolName
   ): Promise<ProtocolImplementation<P, PN>>;
 }
 
+function isInitializer<P extends Platform, PN extends ProtocolName>(
+  ctr: ProtocolBuilder<P, PN>,
+): ctr is ProtocolInitializer<P, PN> {
+  return typeof ctr === "function" && "fromRpc" in ctr && typeof ctr.fromRpc === "function";
+}
+
+export type ProtocolInitializerFactory<P extends Platform, PN extends ProtocolName> = (
+  ...args: any
+) => ProtocolInitializer<P, PN>;
+
+export type ProtocolBuilder<P extends Platform, PN extends ProtocolName> =
+  | ProtocolInitializer<P, PN>
+  | ProtocolInitializerFactory<P, PN>;
+
 export type ProtocolFactoryMap<
   PN extends ProtocolName = ProtocolName,
   P extends Platform = Platform,
-> = Map<PN, Map<P, ProtocolInitializer<P, PN>>>;
+> = Map<PN, Map<P, ProtocolBuilder<P, PN>>>;
 const protocolFactory: ProtocolFactoryMap = new Map();
 
 export function registerProtocol<P extends Platform, PN extends ProtocolName>(
   platform: P,
   protocol: PN,
-  ctr: ProtocolInitializer<P, PN>,
+  ctr: ProtocolBuilder<P, PN>,
 ): void {
   let platforms = protocolFactory.get(protocol)!;
 
-  if (!platforms) platforms = new Map<Platform, ProtocolInitializer<Platform, ProtocolName>>();
+  if (!platforms) platforms = new Map<Platform, ProtocolBuilder<Platform, ProtocolName>>();
 
   if (platforms.has(platform)) return; //throw new Error(`Protocol ${platform} for protocol ${protocol} has already registered`);
 
@@ -62,14 +76,14 @@ export function protocolIsRegistered<T extends Platform | Chain, PN extends Prot
   return !!platforms && platforms.has(platform);
 }
 
-export function getProtocolInitializer<P extends Platform, PN extends ProtocolName>(
+export function getProtocolBuilder<P extends Platform, PN extends ProtocolName>(
   platform: P,
   protocol: PN,
-): ProtocolInitializer<P, PN> {
+): ProtocolBuilder<P, PN> {
   const platforms = protocolFactory.get(protocol);
   if (platforms) {
     const pctr = platforms.get(platform);
-    if (pctr) return pctr as ProtocolInitializer<P, PN>;
+    if (pctr) return pctr as ProtocolBuilder<P, PN>;
   }
   throw new Error(
     `No protocols registered for ${platform}:${protocol}. ` +
@@ -83,7 +97,9 @@ export const create = <N extends Network, P extends Platform, PN extends Protoco
   protocol: PN,
   rpc: RpcConnection<P>,
   config: ChainsConfig<N, P>,
+  ...args: any
 ): Promise<T> => {
-  const pctr = getProtocolInitializer(platform, protocol);
-  return pctr.fromRpc(rpc, config);
+  const pctr = getProtocolBuilder(platform, protocol);
+  if (isInitializer(pctr)) return pctr.fromRpc(rpc, config);
+  return pctr(...args).fromRpc(rpc, config);
 };
